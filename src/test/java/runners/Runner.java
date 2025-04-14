@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json",},
         features = "src/test/resources/Features",
         glue = "stepDefinitions",
-        tags = "@apk",
+        tags = "@aile",
         dryRun = false
 )
 public class Runner {

@@ -15,50 +15,28 @@ import java.time.Duration;
 import java.util.Date;
 
 public class ReusableMethods {
-
-    public static void click(int x, int y) {
-        TouchAction action = new TouchAction<>(Driver.getAndroidDriver());
-        action.press(PointOption.point(x,y)).release().perform();
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-
-        }
-    }
-
-    public static void drag(int x, int y, int sure, int x2, int y2) {
-        TouchAction action = new TouchAction<>(Driver.getAndroidDriver());
-        action.press(
-                        PointOption.point(x,y))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(sure)))
-                .moveTo(PointOption.point(x2,y2))
+    public static void koordinatTiklamaMethodu(int xkoordinati, int ykoordinati, int beklemesuresi){
+        TouchAction action=new TouchAction<>(Driver.getAndroidDriver());
+        action.press(PointOption.point(xkoordinati,ykoordinati))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(beklemesuresi)))
                 .release()
                 .perform();
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-
-        }
     }
 
-
-    public static void bekle(){
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-
-        }
+    public static void koordinatKaydirmaMethodu(int startX, int startY, int endX, int endY, int beklemeSuresiMillis) {
+        TouchAction<?> action = new TouchAction<>(Driver.getAndroidDriver());
+        action.press(PointOption.point(startX, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(beklemeSuresiMillis)))
+                .moveTo(PointOption.point(endX, endY))
+                .release()
+                .perform();
     }
-
 
     public static void scrollWithUiScrollableAndClick(String elementText) {
         AndroidDriver driver = (AndroidDriver)  Driver.getAndroidDriver();
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
         driver.findElementByXPath("//*[@text='" + elementText + "']").click();
     }
-
 
     public static void scrollWithUiScrollable(String elementText){
         AndroidDriver driver = (AndroidDriver)  Driver.getAndroidDriver();
@@ -80,25 +58,14 @@ public class ReusableMethods {
         return target;
     }
 
-
-    public static void koordinatTiklamaMethodu(int xkoordinati, int ykoordinati, int beklemesuresi){
+    public static void ekranKaydirmaMethodu(int xbaslangickoordinati, int ybaslangickoordinati, int beklemesuresi, int xbitiskoordinati, int ybitiskoordinati){
         TouchAction action=new TouchAction<>(Driver.getAndroidDriver());
-        action.press(PointOption.point(xkoordinati,ykoordinati))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(beklemesuresi)))
-                .release()
-                .perform();
+        action.press(PointOption.point(xbaslangickoordinati,ybaslangickoordinati)).
+                waitAction(WaitOptions.waitOptions(Duration.ofMillis(beklemesuresi))).
+                moveTo(PointOption.point(xbitiskoordinati,ybitiskoordinati)).
+                release().perform();
+
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
