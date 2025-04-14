@@ -35,10 +35,12 @@ public class Driver {
         if (appiumDriver == null) {
 
             DesiredCapabilities caps =new DesiredCapabilities();
-            caps.setCapability(MobileCapabilityType.DEVICE_NAME, TELEFONADI);
-            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ANDROIDVERSION);
-            caps.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM);
-            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, OTOMASYON_ISMI);
+//            caps.setCapability(MobileCapabilityType.DEVICE_NAME, TELEFONADI);
+//            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ANDROIDVERSION);
+//            caps.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM);
+//            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, OTOMASYON_ISMI);
+            caps.setCapability(MobileCapabilityType.UDID,"emulator-5554");
+
             caps.setCapability("appPackage",ConfigReader.getProperty("aileButcemPackage"));
             caps.setCapability("appActivity",ConfigReader.getProperty("aileButcemActivity"));
             caps.setCapability(MobileCapabilityType.NO_RESET,false);
