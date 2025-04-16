@@ -23,6 +23,7 @@ public class BrowserStepDef {
     }
     @Then("Arama kutusunun oldugunu dogrular")
     public void arama_kutusunun_oldugunu_dogrular() throws InterruptedException {
+
         Thread.sleep(5000);
         Assert.assertTrue(BrowserDriver.getBrowserDriver().findElementByXPath("//*[@class='searchBoxMobile-LcFBew99VnEBicYKIF5Q']").isDisplayed());
         Thread.sleep(5000);
@@ -52,6 +53,7 @@ public class BrowserStepDef {
     public void bul_secenegine_tiklar() {
         page.SearchButonu.click();
 
+
     }
     @Then("Gelen bilet fiyatinin TL oldugunu dogrular")
     public void gelen_bilet_fiyatinin_tl_oldugunu_dogrular() {
@@ -59,5 +61,6 @@ public class BrowserStepDef {
         Assert.assertTrue(TurkLirasi.equals("TL"));
 
     }
+
 
 }

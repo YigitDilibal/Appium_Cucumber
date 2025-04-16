@@ -62,6 +62,7 @@ public class AileButcemPage {
     public MobileElement kaydetbutonu;
 
 
+
     public void bilgitemizlemeMethodu (){
         isimkutusu.clear();
         soyisimkutusu.clear();
@@ -86,6 +87,7 @@ public class AileButcemPage {
         Thread.sleep(2000);
         kaydetbutonu.click();
     }
+
 
     public void bilgileriDogrulamaMethodu(String isim, String soyisim, String sehir, String yas, String meslek, String cinsiyet) throws InterruptedException {
         Assert.assertTrue(isimkutusu.getText().equals(ConfigReader.getProperty(isim)));

@@ -25,6 +25,7 @@ public class AileButcemStepDef {
         page.passwordKutusu.sendKeys(ConfigReader.getProperty(password));
         Thread.sleep(2000);
         page.girisYapButonu.click();
+
     }
     @Then("Uygulamaya kullanici bilgileriyle giris yapildigini dogrulayin")
     public void uygulamaya_kullanici_bilgileriyle_giris_yapildigini_dogrulayin() throws InterruptedException {
