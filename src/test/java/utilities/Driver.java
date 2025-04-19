@@ -23,7 +23,6 @@ public class Driver {
 
 
 
-
     public static AndroidDriver getAndroidDriver()  {
         URL appiumServerURL = null;
         try {
@@ -41,6 +40,7 @@ public class Driver {
 //            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, OTOMASYON_ISMI);
             caps.setCapability(MobileCapabilityType.UDID,"emulator-5554");
 
+
             caps.setCapability("appPackage",ConfigReader.getProperty("aileButcemPackage"));
             caps.setCapability("appActivity",ConfigReader.getProperty("aileButcemActivity"));
             caps.setCapability(MobileCapabilityType.NO_RESET,false);
@@ -48,6 +48,7 @@ public class Driver {
         uygulamanin ilk install haline dondurulur
          */
             // eger true olursa kullanicili bilgileri test bittikten sonra sifirlanmaz ve tercihler kaydedilir.Islemlere kaldiginiz yerden devam edilir
+
 
 
             if (ConfigReader.getProperty("platformName").equals("Android")) {
@@ -69,6 +70,7 @@ public class Driver {
 
         return appiumDriver;
     }
+
 
 
     public static void quitAppiumDriver(){
